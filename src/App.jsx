@@ -1,7 +1,7 @@
 // src/App.jsx (or another top-level component)
 import React from "react";
 import FieldPage from "./Pages/FieldPage/FieldPage.jsx";
-import Footer from "./Components/Footer/Footer";
+import Footer from "./Components/Footer/footer.jsx";
 
 const App = () => {
   return (
