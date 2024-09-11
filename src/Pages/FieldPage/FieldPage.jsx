@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Horse from "../Components/Horse/Horse";
+import Horse from "../../Components/Horse/Horse";
 import "./FieldPage.scss"; // Import the SCSS file for styling
 
 const FieldPage = () => {
