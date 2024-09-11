@@ -125,10 +125,10 @@
     width: 0.4rem;
     height: 0.4rem;
     background-color: black;
-    border-radius:
-    50%;
+    border-radius: 50%;
     top: 0.625rem;
     left: 0.8rem;
+    animation: blink 1s;
   }
   
   .horse__mane {
@@ -156,6 +156,15 @@
     }
     50% {
       transform: rotate(29deg);
+    }
+  }
+  
+  @keyframes blink {
+    0%, 100% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(0.1);
     }
   }
   

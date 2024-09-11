@@ -1,13 +1,15 @@
-import { useState } from "react";
-import "./App.css";
-import Horse from "./Components/Horse/Horse";
+// src/App.jsx (or another top-level component)
+import React from "react";
+import FieldPage from "./pages/FieldPage";
+import Footer from "./Components/Footer/Footer";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Horse />
+    <div className="app">
+      <FieldPage />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
