@@ -54,3 +54,14 @@ background: linear-gradient(0deg, rgba(29,177,16,1) 57%, rgb(87, 188, 255) 57%);
     height: 9.375rem; 
   }
   
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  color: black; // Primary text color
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.446);
+  border-top: 10px dashed white; // Dashed border to resemble a fence
+}

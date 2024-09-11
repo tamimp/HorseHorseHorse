@@ -64,6 +64,9 @@ const FieldPage = () => {
           />
         </div>
       ))}
+      <footer className="footer">
+        Ranch sponsored by Tami Poliwoda. Thanks for visiting!
+      </footer>
     </div>
   );
 };
