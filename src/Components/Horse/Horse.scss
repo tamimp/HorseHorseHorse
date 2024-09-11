@@ -1,0 +1,161 @@
+:root {
+    --horse-body-color: grey;
+    --horse-mane-tail-color: black;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .horse {
+    position: relative;
+    width: 12.5rem;
+    height: 9.375rem;
+  }
+  
+  .horse__body {
+    position: relative;
+    width: 6rem;
+    height: 3.125rem;
+    background-color: var(--horse-body-color);
+    border-radius: 1.875rem 1.875rem 0.625rem 0.625rem;
+    top: 2.5rem;
+    left: 3.125rem;
+  }
+  
+  .horse__tail {
+    position: absolute;
+    width: 1.25rem;
+    height: 3.125rem;
+    background-color: var(--horse-mane-tail-color);
+    border-radius: 50%;
+    top: 0.625rem;
+    left: -0.25rem;
+    transform: rotate(30deg);
+    transform-origin: top;
+    animation: tail-swing 1s infinite;
+  }
+  
+  .horse__leg {
+    position: absolute;
+    width: 0.625rem;
+    height: 3.125rem;
+    background-color: var(--horse-body-color);
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .horse__leg--front-left {
+    top: 2.5rem;
+    left: 0.9375rem;
+  }
+  
+  .horse__leg--front-right {
+    top: 2.5rem;
+    left: 2.1875rem;
+  }
+  
+  .horse__leg--back-left {
+    top: 2.5rem;
+    left: 4.0625rem;
+  }
+  
+  .horse__leg--back-right {
+    top: 2.5rem;
+    left: 5.3125rem;
+    transform-origin: top;
+  }
+  
+  .horse__neck {
+    position: absolute;
+    width: 1.875rem;
+    height: 3.75rem;
+    background-color: var(--horse-body-color);
+    border-radius: 1.25rem 1.25rem 0.625rem 0.625rem;
+    top: -1.875rem;
+    left: 4.6875rem;
+    transform: rotate(20deg);
+  }
+  
+  .horse__head {
+    position: absolute;
+    width: 1.875rem;
+    height: 1.875rem;
+    background-color: var(--horse-body-color);
+    border-radius: 50% 50% 50% 50% / 50% 50% 30% 30%;
+    top: -0.9375rem;
+    left: 0.625rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .horse__muzzle {
+    position: absolute;
+    width: 1.875rem;
+    height: 0.9375rem;
+    background-color: var(--horse-body-color);
+    border-radius: 0.625rem;
+    top: 0.625rem;
+    left: 1.25rem;
+  }
+  
+  .horse__ear {
+    position: absolute;
+    width: 0.625rem;
+    height: 2rem;
+    background-color: var(--horse-body-color);
+    border-radius: 50%;
+  }
+  
+  .horse__ear--left {
+    top: -0.3125rem;
+    left: 0.3125rem;
+  }
+  
+  .horse__ear--right {
+    top: -0.3125rem;
+    left: 0.9375rem;
+  }
+  
+  .horse__eye {
+    position: absolute;
+    width: 0.4rem;
+    height: 0.4rem;
+    background-color: black;
+    border-radius:
+    50%;
+    top: 0.625rem;
+    left: 0.8rem;
+  }
+  
+  .horse__mane {
+    position: absolute;
+    width: 0.75rem;
+    height: 3.5rem;
+    background-color: var(--horse-mane-tail-color);
+    border-radius: 1.25rem;
+    transform: rotate(10deg);
+    top: -0.4rem;
+    left: -0.1rem;
+  }
+  
+  .horse:hover .horse__head {
+    transform: rotate(20deg); /* Adjust the angle as needed */
+  }
+  
+  .horse:hover .horse__leg--back-right {
+    transform: rotate(-8deg); /* Rotate the front-left leg outward */
+  }
+  
+  @keyframes tail-swing {
+    0%, 100% {
+      transform: rotate(31deg);
+    }
+    50% {
+      transform: rotate(29deg);
+    }
+  }
+  
