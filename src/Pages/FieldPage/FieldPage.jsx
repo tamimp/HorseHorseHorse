@@ -1,47 +1,52 @@
 import React, { useState } from "react";
 import Horse from "../../Components/Horse/Horse";
-import "./FieldPage.scss"; // Import the SCSS file for styling
+import "./FieldPage.scss";
+import hornSound from "../../assets/magic.mp3";
 
 const FieldPage = () => {
   const [horses, setHorses] = useState([]);
 
   const getRandomColor = () => {
     const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
+    let color;
+    do {
+      color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+    } while (color.startsWith("#00") || color.startsWith("#0"));
     return color;
   };
 
   const addHorse = () => {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-    const topOneThirdHeight = viewportHeight / 3; // Height for the top 1/3 of the viewport
-    const horseWidth = 150; // Width of the horse
-    const horseHeight = 120; // Height of the horse
-
-    // Calculate available space for random Y position
+    const topOneThirdHeight = viewportHeight / 3;
+    const horseWidth = 150;
+    const horseHeight = 120;
     const maxY = viewportHeight - horseHeight;
 
-    // Generate a random position within the allowed area
-    const randomX = Math.random() * (viewportWidth - horseWidth); // Ensure x position is within the viewport width
+    const randomX = Math.random() * (viewportWidth - horseWidth);
     const randomY =
-      Math.random() * (maxY - topOneThirdHeight) + topOneThirdHeight; // Ensure y position is within the lower 2/3 of the viewport
+      Math.random() * (maxY - topOneThirdHeight) + topOneThirdHeight;
 
-    // Generate random colors
     const bodyColor = getRandomColor();
     const maneTailColor = getRandomColor();
+    const showHorn = Math.random() < 0.1;
 
-    // Add a new horse with random position and colors
     setHorses([
       ...horses,
-      { x: randomX, y: randomY, bodyColor, maneTailColor },
+      { x: randomX, y: randomY, bodyColor, maneTailColor, showHorn },
     ]);
+
+    if (showHorn) {
+      const audio = new Audio(hornSound);
+      audio.play();
+    }
   };
 
   const clearHorses = () => {
-    setHorses([]); // Clears all horses
+    setHorses([]);
   };
 
   return (
@@ -61,6 +66,7 @@ const FieldPage = () => {
           <Horse
             bodyColor={horse.bodyColor}
             maneTailColor={horse.maneTailColor}
+            showHorn={horse.showHorn}
           />
         </div>
       ))}
