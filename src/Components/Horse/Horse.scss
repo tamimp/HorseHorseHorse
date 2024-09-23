@@ -2,6 +2,21 @@
     --horse-body-color: grey;
     --horse-mane-tail-color: black;
   }
+
+  @keyframes scaleUp {
+    0% {
+      transform: scale(0) translateY(-9rem);
+      opacity: 0;
+    }
+    90% {
+      transform: scale(1) translateY(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
   
   body {
     margin: 0;
@@ -15,6 +30,7 @@
     position: relative;
     width: 12.5rem;
     height: 9.375rem;
+    animation: scaleUp 0.5s ease forwards
   }
   
   .horse__body {
@@ -130,6 +146,19 @@
     left: 0.8rem;
     animation: blink 1s;
   }
+  
+  .horse__horn {
+    position: absolute;
+    width: 0.5rem;  
+    height: 1.5rem;
+    background: linear-gradient(to bottom, gold, #ffecb3);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: -1.2rem; 
+    left: 1.5rem; 
+    transform: rotate(30deg); 
+  }
+
+
   
   .horse__mane {
     position: absolute;

@@ -1,9 +1,15 @@
-import React from "react";
-import "./Horse.scss"; // Ensure to import the SCSS for the Horse component
+import React, { useRef } from "react";
+import "./Horse.scss";
+import neighSound from "../../assets/neigh.mp3";
 
-const Horse = ({ maneTailColor, bodyColor }) => {
+const Horse = ({ maneTailColor, bodyColor, showHorn }) => {
+  const audioRef = useRef(new Audio(neighSound));
+  const handleMouseEnter = () => {
+    audioRef.current.play();
+  };
+
   return (
-    <div className="horse">
+    <div className="horse" onMouseEnter={handleMouseEnter}>
       <div className="horse__body" style={{ backgroundColor: bodyColor }}>
         <div
           className="horse__tail"
@@ -35,6 +41,8 @@ const Horse = ({ maneTailColor, bodyColor }) => {
               className="horse__ear horse__ear--right"
               style={{ backgroundColor: bodyColor }}
             ></div>
+            {showHorn && <div className="horse__horn"></div>}{" "}
+            {/* Conditionally render the horn */}
             <div className="horse__eye"></div>
             <div
               className="horse__muzzle"

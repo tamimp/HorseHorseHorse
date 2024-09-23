@@ -1,3 +1,66 @@
+.clouds {
+  position: absolute;
+  top: 10%; // Adjust as needed
+  left: 0;
+  width: 100%;
+  height: 20%; // Adjust as needed
+  pointer-events: none; // Allows clicking on buttons below
+}
+
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50px;
+  opacity: 0.8;
+  animation: float 5s infinite ease-in-out; // Optional floating effect
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.8;
+  }
+
+  &.cloud-1 {
+    width: 60px;
+    height: 35px;
+    top: 0;
+    left: 20%;
+  }
+
+  &.cloud-2 {
+    width: 80px;
+    height: 45px;
+    top: 0;
+    left: 50%;
+  }
+
+  &.cloud-3 {
+    width: 100px;
+    height: 50px;
+    top: 0;
+    left: 80%;
+  }
+
+  &.cloud-4 {
+    width: 70px;
+    height: 40px;
+    top: 0;
+    left: 10%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 .field-page {
     position: relative;
     width: 100vw;
